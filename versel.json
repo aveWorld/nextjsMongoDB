@@ -1,8 +1,8 @@
 {
     "env": {
-      "MYSQL_HOST": "sql7.freemysqlhosting.net",
-      "MYSQL_USER": "sql7353286",
-      "MYSQL_PASSWORD": "qIxUhxFlEm",
-      "MYSQL_DATABASE": "sql7353286"
+      "MYSQL_HOST": "@sql7.freemysqlhosting.net",
+      "MYSQL_USER": "@sql7353286",
+      "MYSQL_PASSWORD": "@qIxUhxFlEm",
+      "MYSQL_DATABASE": "@sql7353286"
     }
   }
