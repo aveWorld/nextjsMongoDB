@@ -22,6 +22,7 @@ function HomePage({ profiles, page, pageCount }) {
             <Link href={`/profile?id=${p.id}`}>
               <a>
                 <img src={p.name} />
+                 <span>{p.name}</span>
                 <span>{p.gmail}</span>
               </a>
             </Link>
