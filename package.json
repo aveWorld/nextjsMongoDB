@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tractorzoom/serverless-mysql-utils": "^2.1.7",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.4.4",
     "react": "^16.13.1",
