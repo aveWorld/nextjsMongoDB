@@ -21,9 +21,8 @@ function HomePage({ profiles, page, pageCount }) {
           <li className="profile" key={p.id}>
             <Link href={`/profile?id=${p.id}`}>
               <a>
-                <img src={p.name} />
-                 <span>{p.name}</span>
-                <span>{p.gmail}</span>
+                <img src={p.avatar} />
+                <span>{p.name}</span>
               </a>
             </Link>
           </li>
