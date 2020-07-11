@@ -1,47 +1,37 @@
-import fetch from 'isomorphic-unfetch'
-import Link from 'next/link'
+import React, {useState, useEffect} from 'react'
 
-HomePage.getInitialProps = async ({ req, query }) => {
-  const protocol = req
-    ? `${req.headers['x-forwarded-proto']}:`
-    : location.protocol
-  const host = req ? req.headers['x-forwarded-host'] : location.host
-  const pageRequest = `${protocol}//${host}/api/profiles?page=${query.page ||
-    1}&limit=${query.limit || 9}`
-  const res = await fetch(pageRequest)
-  const json = await res.json()
-  return json
+const Home = ({data}) => {
+    console.log(data)
+    const [email, setEmail] = useState("");
+    const getEmail = e => {
+      console.log(e.target.value);
+      setEmail(e.target.value)
+    }
+
+    const updateMacros = async () => {
+      const res = await fetch('http://localhost:3000/api/api', {
+        method: 'post',
+        body: JSON.stringify(email)
+      })
+    }
+
+
+    return (
+    <div>
+      <input type="text" onChange={getEmail}/>
+      <button onClick={updateMacros}>send post</button>
+    </div>
+    )
 }
 
-function HomePage({ profiles, page, pageCount }) {
-  return (
-    <>
-      <ul>
-        {profiles.map(p => (
-          <li className="profile" key={p.id}>
-            <Link href={`/profile?id=${p.id}`}>
-              <a>
-                <img src={p.avatar} />
-                <span>{p.name}</span>
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <nav>
-        {page > 1 && (
-          <Link href={`/?page=${page - 1}&limit=9`}>
-            <a>Previous</a>
-          </Link>
-        )}
-        {page < pageCount && (
-          <Link href={`/?page=${page + 1}&limit=9`}>
-            <a className="next">Next</a>
-          </Link>
-        )}
-      </nav>
-    </>
-  )
-}
+export async function getStaticProps(context) {
+    const res = await fetch("http://localhost:3000/api/api");
+    const json = await res.json();
+    return {
+      props: {
+        data: json,
+      },
+    };
+  }
 
-export default HomePage
+export default Home

@@ -12,12 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tractorzoom/serverless-mysql-utils": "^2.1.7",
     "isomorphic-unfetch": "^3.0.0",
+    "mongodb": "^3.5.9",
     "next": "^9.4.4",
+    "next-connect": "^0.8.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "serverless-mysql": "^1.5.4",
-    "sql-template-strings": "^2.2.2"
+    "react-dom": "^16.13.1"
   }
 }
